@@ -1,7 +1,7 @@
-### Project specific .gitignore items ###
+### Project items ###
 books/
 
-### Python .gitignore items ###
+### Python items ###
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
