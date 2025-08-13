@@ -1,8 +1,15 @@
+import sys
 from stats import count_characters_in_text, count_number_of_words_in_text, sort_character_counts
 
 def main():
+    args = sys.argv
+    args.remove("main.py")
+    if len(args) != 1:
+        print(f"Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
     print("============ BOOKBOT ============")
-    book = "books/frankenstein.txt"
+    book = args[0]
     print(f"Analyzing book found at {book}")
     text = get_book_text(book)
     print("----------- Word Count ----------")
