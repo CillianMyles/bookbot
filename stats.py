@@ -6,7 +6,7 @@ def count_characters_in_text(text):
     counts = {}
     for i in range(len(text)):
         char = text[i].lower()
-        if char == '\ufeff':  # skip BOM
+        if char == ' ' or char == '\n' or char == '\ufeff':  # skip BOM
             continue
         if char not in counts:
             counts[char] = 0
@@ -14,7 +14,12 @@ def count_characters_in_text(text):
     return counts
 
 def sort_character_counts(counts):
-    return counts.sort(reverse=True, key=_sort_on)
+    sorted = []
+    for char in counts:
+        item = {"char": char, "num": counts[char]}
+        sorted.append(item)
+    sorted.sort(reverse=True, key=_sort_on)
+    return sorted
 
 def _sort_on(items):
     return items["num"]
