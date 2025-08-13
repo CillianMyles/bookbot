@@ -1,4 +1,5 @@
 import sys
+from files import get_book_text
 from stats import count_characters_in_text, count_number_of_words_in_text, sort_character_counts
 
 def main():
@@ -21,12 +22,5 @@ def main():
     for count in sorted_counts:
         print(f"{count['char']}: {count['num']}")
     print("============= END ===============")
-
-def get_book_text(file_path):
-    try:
-        with open(file_path, 'r') as file:
-            return file.read()
-    except FileNotFoundError:
-        return "Book not found. Please check the file path."
 
 main()
